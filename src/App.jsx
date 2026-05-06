@@ -34,14 +34,20 @@ function App() {
       <div className="viewer-container">
         <h1 className="viewer-title">Random cat viewer</h1>
         <button onClick={fetchData} className="get-new-button">
-          Get new cat
+          Fetch New Cat
         </button>
         {pageState === "initial" ? (
-          <h1>Intital state</h1>
+          <div className="state-message initial">
+            Welcome! Click the button to fetch a random cat.
+          </div>
         ) : pageState === "error" ? (
-          <h1>Error while api calling</h1>
+          <div className="state-message error">
+            Oops! Something went wrong while fetching the cat. Please try again.
+          </div>
         ) : pageState === "loading" ? (
-          <h1>Loading...</h1>
+          <div className="state-message loading">
+            Loading your adorable cat...
+          </div>
         ) : (
           <CatCard data={data} />
         )}
